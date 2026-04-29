@@ -13,7 +13,15 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        finance: "hsl(var(--finance))",
+        health: "hsl(var(--health))",
+        daily: "hsl(var(--daily))",
+        math: "hsl(var(--math))",
+        utility: "hsl(var(--utility))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
