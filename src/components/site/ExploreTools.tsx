@@ -97,17 +97,20 @@ export const ExploreTools = () => (
             </div>
 
             <ul className="grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
-              {tools.map((t) => (
-                <li key={t}>
-                  <a
-                    href="#popular"
-                    title={`Free ${t} online`}
-                    className="text-muted-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
-                  >
-                    {t}
-                  </a>
-                </li>
-              ))}
+              {tools.map((t) => {
+                const slug = t.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+                return (
+                  <li key={t}>
+                    <a
+                      href={`/tool/${slug}`}
+                      title={`Free ${t} online`}
+                      className="text-muted-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
+                    >
+                      {t}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
 
             <a
