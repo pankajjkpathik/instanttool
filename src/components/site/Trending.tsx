@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { TrendingUp, IndianRupee, LineChart, Cake, Percent, ArrowRight } from "lucide-react";
 
 const trending = [
-  { icon: IndianRupee, name: "EMI Calculator", color: "finance" },
-  { icon: LineChart, name: "SIP Calculator", color: "math" },
-  { icon: Cake, name: "Age Calculator", color: "daily" },
-  { icon: Percent, name: "Percentage Calculator", color: "utility" },
+  { icon: IndianRupee, name: "EMI Calculator", color: "finance", slug: "emi-calculator" },
+  { icon: LineChart, name: "SIP Calculator", color: "math", slug: "sip-calculator" },
+  { icon: Cake, name: "Age Calculator", color: "daily", slug: "age-calculator" },
+  { icon: Percent, name: "Percentage Calculator", color: "utility", slug: "percentage-calculator" },
 ];
 
 export const Trending = () => (
@@ -19,24 +20,16 @@ export const Trending = () => (
         </div>
       </div>
       <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-2 md:grid md:grid-cols-4 md:overflow-visible">
-        {trending.map(({ icon: Icon, name, color }) => (
-          <div
-            key={name}
-            className="min-w-[240px] md:min-w-0 rounded-2xl bg-card border border-border p-5 shadow-card hover:shadow-glow transition"
-          >
-            <div
-              className="grid h-11 w-11 place-items-center rounded-xl mb-4"
-              style={{ backgroundColor: `hsl(var(--${color}) / 0.12)`, color: `hsl(var(--${color}))` }}
-            >
+        {trending.map(({ icon: Icon, name, color, slug }) => (
+          <div key={name} className="min-w-[240px] md:min-w-0 rounded-2xl bg-card border border-border p-5 shadow-card hover:shadow-glow transition">
+            <div className="grid h-11 w-11 place-items-center rounded-xl mb-4"
+              style={{ backgroundColor: `hsl(var(--${color}) / 0.12)`, color: `hsl(var(--${color}))` }}>
               <Icon className="h-5 w-5" />
             </div>
             <h3 className="text-base">{name}</h3>
-            <a
-              href="#"
-              className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
-            >
+            <Link to={`/tool/${slug}`} className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all">
               Use Now <ArrowRight className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         ))}
       </div>

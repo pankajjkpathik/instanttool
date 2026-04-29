@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, IndianRupee } from "lucide-react";
 
 export const Featured = () => (
@@ -44,12 +45,12 @@ export const Featured = () => (
             <li>✓ Year-wise interest & principal split</li>
             <li>✓ Compare multiple loan scenarios</li>
           </ul>
-          <a
-            href="#"
+          <Link
+            to="/tool/emi-calculator"
             className="mt-7 inline-flex items-center gap-2 rounded-xl gradient-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-95"
           >
             Try EMI Calculator <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
