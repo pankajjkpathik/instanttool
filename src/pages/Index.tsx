@@ -1,5 +1,6 @@
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
+import { QuickStrip } from "@/components/site/QuickStrip";
 import { Categories } from "@/components/site/Categories";
 import { Trending } from "@/components/site/Trending";
 import { Featured } from "@/components/site/Featured";
@@ -15,6 +16,8 @@ const Index = () => (
     <Header />
     <main>
       <Hero />
+      <QuickStrip />
+      <Popular />
       <AdSlot label="Ad · Banner" />
       <Categories />
       <Trending />
@@ -23,7 +26,6 @@ const Index = () => (
       <Trust />
       <AdSlot label="Ad · Mid Content" />
       <SeoContent />
-      <Popular />
       <EmailCapture />
     </main>
     <Footer />
