@@ -724,9 +724,7 @@ export const tools: ToolDef[] = [
     ["qr-code-generator", "word-counter", "base64-encoder", "url-encoder"],
     "A 16-character password with all options enabled looks like: Kj2$mNp9!qXrLb#7",
     "Indian users facing rising banking and OTP fraud need genuinely strong, unique passwords for each site. Combine this generator with a password manager for an unbeatable combo.",
-    undefined,
-  ).Calculator ? generic("password-generator", "Password Generator", "utility", "", "", [], [], [], "", "") : ({} as any),
-  // (We replace the placeholder above with the real entry below.)
+  ),
 ];
 
 // Patch real Calculator components for utility tools created with `generic` helper:
