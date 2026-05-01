@@ -1,35 +1,22 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, IndianRupee } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import sectionTools from "@/assets/section-tools.jpg";
 
 export const Featured = () => (
   <section className="py-16 md:py-20">
     <div className="container-tool">
       <div className="grid items-center gap-10 lg:grid-cols-2 rounded-3xl bg-card border border-border p-6 sm:p-10 shadow-card">
-        {/* Tool preview */}
-        <div className="rounded-2xl gradient-hero p-6 sm:p-8">
-          <div className="rounded-xl bg-card shadow-soft p-5 space-y-4">
-            <div className="flex items-center gap-2 text-sm font-semibold text-primary">
-              <IndianRupee className="h-4 w-4" /> EMI Calculator
-            </div>
-            {[
-              { label: "Loan Amount", val: "₹ 10,00,000" },
-              { label: "Interest Rate", val: "8.5 %" },
-              { label: "Tenure", val: "20 years" },
-            ].map((f) => (
-              <div key={f.label}>
-                <div className="flex justify-between text-xs text-muted-foreground mb-1.5">
-                  <span>{f.label}</span><span className="font-semibold text-foreground">{f.val}</span>
-                </div>
-                <div className="h-2 rounded-full bg-secondary overflow-hidden">
-                  <div className="h-full w-3/4 gradient-primary rounded-full" />
-                </div>
-              </div>
-            ))}
-            <div className="rounded-xl gradient-primary p-4 text-primary-foreground">
-              <div className="text-xs opacity-80">Monthly EMI</div>
-              <div className="text-2xl font-extrabold">₹ 8,678</div>
-            </div>
-          </div>
+        {/* Tool preview image */}
+        <div className="relative">
+          <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-primary/15 to-accent/10 blur-2xl" />
+          <img
+            src={sectionTools}
+            alt="EMI Calculator preview on a smartphone with rupee coins and breakdown chart"
+            width={1280}
+            height={896}
+            loading="lazy"
+            className="relative rounded-2xl shadow-card w-full"
+          />
         </div>
 
         <div>
