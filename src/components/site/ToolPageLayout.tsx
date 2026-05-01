@@ -60,6 +60,7 @@ export const ToolPageLayout = (props: ToolPageProps) => {
     // Canonical URL — always emit (use given path or current pathname)
     const canonicalPath = canonical || window.location.pathname;
     let link = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    const previousCanonical = link?.href;
     if (!link) {
       link = document.createElement("link");
       link.rel = "canonical";
@@ -116,6 +117,8 @@ export const ToolPageLayout = (props: ToolPageProps) => {
     return () => {
       document.getElementById("tool-faq-jsonld")?.remove();
       document.getElementById("tool-breadcrumb-jsonld")?.remove();
+      // Restore previous canonical so non-tool pages don't keep a stale tool URL
+      if (link && previousCanonical) link.href = previousCanonical;
     };
   }, [title, description, canonical, faqs, breadcrumbCategory, h1]);
 
