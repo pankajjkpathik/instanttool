@@ -19,7 +19,7 @@ const DynamicToolPage = () => {
       title={`${tool.name} Online – Free & Instant Calculator | InstantTool.in`}
       description={`Use our free ${tool.name.toLowerCase()} to calculate results instantly. Fast, accurate and easy to use — built for Indian users.`}
       canonical={`/tool/${tool.slug}`}
-      breadcrumbCategory={{ label: tool.categoryLabel, href: "/#categories" }}
+      breadcrumbCategory={{ label: tool.categoryLabel, href: `/${tool.categoryAnchor || "#categories"}` }}
       h1={`${tool.name} – Calculate Instantly Online`}
       intro={<p>{tool.short}</p>}
       calculator={<Calc {...(tool.calculatorProps || {})} />}

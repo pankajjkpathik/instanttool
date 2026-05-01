@@ -8,9 +8,9 @@ import { Trust } from "@/components/site/Trust";
 import { SeoContent } from "@/components/site/SeoContent";
 import { Popular } from "@/components/site/Popular";
 import { ExploreTools } from "@/components/site/ExploreTools";
+import { PlannerCTA } from "@/components/site/PlannerCTA";
 import { EmailCapture } from "@/components/site/EmailCapture";
 import { Footer } from "@/components/site/Footer";
-import { AdSlot } from "@/components/site/AdSlot";
 
 const Index = () => (
   <div className="min-h-screen bg-background">
@@ -18,18 +18,14 @@ const Index = () => (
     <main>
       <Hero />
       <QuickStrip />
-      <AdSlot label="Ad · Below Hero" />
       <Categories />
       <Popular />
-      <AdSlot label="Ad · After Popular Tools" />
       <ExploreTools />
       <Trending />
-      <AdSlot label="Ad · Inline" />
       <Featured />
+      <PlannerCTA />
       <Trust />
-      <AdSlot label="Ad · Mid Content" />
       <SeoContent />
-      <AdSlot label="Ad · Before Email Capture" />
       <EmailCapture />
     </main>
     <Footer />

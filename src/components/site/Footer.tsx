@@ -1,8 +1,43 @@
-const cols = [
-  { title: "Quick Links", links: ["Home", "Trending Tools", "Popular Tools", "Blog"] },
-  { title: "Categories", links: ["Finance", "Health", "Daily Utilities", "Math", "Utility"] },
-  { title: "Company", links: ["About", "Contact", "Sitemap"] },
-  { title: "Legal", links: ["Privacy Policy", "Terms of Use", "Disclaimer"] },
+import { Link } from "react-router-dom";
+import logo from "@/assets/logo-instanttool.png";
+
+const cols: { title: string; links: { label: string; href: string }[] }[] = [
+  {
+    title: "Quick Links",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "All Tools", href: "/#explore" },
+      { label: "Personal Finance Planner", href: "/InstantTool-Personal-Finance-Planner.xlsx" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Categories",
+    links: [
+      { label: "Personal Finance", href: "/#cluster-finance" },
+      { label: "Investment & Savings", href: "/#cluster-investment" },
+      { label: "Health & Fitness", href: "/#cluster-health" },
+      { label: "Daily Utilities", href: "/#cluster-daily" },
+      { label: "Math Calculators", href: "/#cluster-math" },
+      { label: "Utility & Converters", href: "/#cluster-utility" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Sitemap", href: "/sitemap" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Use", href: "/terms" },
+      { label: "Disclaimer", href: "/disclaimer" },
+    ],
+  },
 ];
 
 export const Footer = () => (
@@ -11,11 +46,11 @@ export const Footer = () => (
       <div className="grid gap-10 md:grid-cols-5">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2">
-            <div className="grid h-9 w-9 place-items-center rounded-xl gradient-primary font-extrabold">i</div>
+            <img src={logo} alt="InstantTool" width={36} height={36} className="h-9 w-9 rounded-lg" loading="lazy" />
             <span className="text-lg font-extrabold">InstantTool</span>
           </div>
           <p className="mt-3 text-sm text-background/70">
-            Free, fast and accurate online calculators for every Indian.
+            Free, fast and accurate online calculators for every Indian household.
           </p>
         </div>
         {cols.map((c) => (
@@ -23,8 +58,16 @@ export const Footer = () => (
             <h4 className="text-sm font-bold mb-3">{c.title}</h4>
             <ul className="space-y-2">
               {c.links.map((l) => (
-                <li key={l}>
-                  <a href="#" className="text-sm text-background/70 hover:text-background transition-colors">{l}</a>
+                <li key={l.label}>
+                  {l.href.startsWith("/") && !l.href.includes(".xlsx") && !l.href.includes("#") ? (
+                    <Link to={l.href} className="text-sm text-background/70 hover:text-background transition-colors">
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a href={l.href} className="text-sm text-background/70 hover:text-background transition-colors">
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
