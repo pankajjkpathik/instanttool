@@ -7,6 +7,13 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import EmiCalculatorPage from "./pages/tools/EmiCalculatorPage.tsx";
 import DynamicToolPage from "./pages/tools/DynamicToolPage.tsx";
+import About from "./pages/About.tsx";
+import Contact from "./pages/Contact.tsx";
+import Privacy from "./pages/Privacy.tsx";
+import Terms from "./pages/Terms.tsx";
+import Disclaimer from "./pages/Disclaimer.tsx";
+import Sitemap from "./pages/Sitemap.tsx";
+import Blog from "./pages/Blog.tsx";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +25,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/emi-calculator" element={<EmiCalculatorPage />} />
           <Route path="/tool/:slug" element={<DynamicToolPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
