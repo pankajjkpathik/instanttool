@@ -5,12 +5,12 @@ import logo from "@/assets/logo-instanttool.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Finance", href: "/#cluster-finance" },
-  { label: "Investment", href: "/#cluster-investment" },
-  { label: "Health", href: "/#cluster-health" },
-  { label: "Daily", href: "/#cluster-daily" },
-  { label: "Math", href: "/#cluster-math" },
-  { label: "Utility", href: "/#cluster-utility" },
+  { label: "Finance", href: "/category/finance" },
+  { label: "Investment", href: "/category/investment" },
+  { label: "Health", href: "/category/health" },
+  { label: "Daily", href: "/category/daily" },
+  { label: "Math", href: "/category/math" },
+  { label: "Utility", href: "/category/utility" },
   { label: "Blog", href: "/blog" },
 ];
 
