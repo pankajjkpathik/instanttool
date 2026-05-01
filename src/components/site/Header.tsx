@@ -46,13 +46,13 @@ export const Header = () => {
 
         <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((n) => (
-            <a
+            <Link
               key={n.label}
-              href={n.href}
+              to={n.href}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {n.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
