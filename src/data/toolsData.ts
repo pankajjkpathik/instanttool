@@ -12,8 +12,25 @@ import { CalorieCalculator } from "@/components/tools/CalorieCalculator";
 import { PasswordGenerator } from "@/components/tools/PasswordGenerator";
 import { QrGenerator } from "@/components/tools/QrGenerator";
 import { GenericCalculator } from "@/components/tools/GenericCalculator";
+import { SimpleInterest } from "@/components/tools/SimpleInterest";
+import { RdCalculator } from "@/components/tools/RdCalculator";
+import { CagrCalculator } from "@/components/tools/CagrCalculator";
+import { InflationCalculator } from "@/components/tools/InflationCalculator";
+import { SwpCalculator } from "@/components/tools/SwpCalculator";
+import { RetirementCalculator } from "@/components/tools/RetirementCalculator";
+import { NumberToWords } from "@/components/tools/NumberToWords";
+import { RomanNumeral } from "@/components/tools/RomanNumeral";
+import { RandomNumber } from "@/components/tools/RandomNumber";
+import { ProfitLoss } from "@/components/tools/ProfitLoss";
+import { SpeedDistanceTime } from "@/components/tools/SpeedDistanceTime";
+import { AreaCalculator } from "@/components/tools/AreaCalculator";
+import { FractionCalculator } from "@/components/tools/FractionCalculator";
+import { TimeDuration } from "@/components/tools/TimeDuration";
+import { RemoveDuplicates } from "@/components/tools/RemoveDuplicates";
+import { DataStorageConverter } from "@/components/tools/DataStorageConverter";
+import { ScientificCalculator } from "@/components/tools/ScientificCalculator";
 
-export type CategoryKey = "finance" | "health" | "daily" | "math" | "utility";
+export type CategoryKey = "finance" | "investment" | "health" | "daily" | "math" | "utility";
 
 export interface ToolDef {
   slug: string;                 // e.g. "sip-calculator"
@@ -35,11 +52,12 @@ export interface ToolDef {
 }
 
 const cat = {
-  finance: { label: "Finance Tools", href: "/#categories" },
-  health: { label: "Health Tools", href: "/#categories" },
+  finance: { label: "Personal Finance", href: "/#categories" },
+  investment: { label: "Investment & Savings", href: "/#categories" },
+  health: { label: "Health & Fitness", href: "/#categories" },
   daily: { label: "Daily Utilities", href: "/#categories" },
-  math: { label: "Math & Conversion", href: "/#categories" },
-  utility: { label: "Text & Web Utilities", href: "/#categories" },
+  math: { label: "Math Calculators", href: "/#categories" },
+  utility: { label: "Utility & Converters", href: "/#categories" },
 } as const;
 
 // Helper to make a generic-but-rich entry for tools that share a category template.
