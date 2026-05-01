@@ -1,61 +1,112 @@
-import {
-  Wallet, HeartPulse, CalendarDays, Calculator, Settings2, ArrowRight,
-} from "lucide-react";
+import { Wallet, TrendingUp, HeartPulse, CalendarDays, Calculator, Settings2, ArrowRight } from "lucide-react";
 
 const groups = [
   {
-    icon: Wallet,
-    color: "finance",
-    title: "Finance Calculators",
-    desc: "Plan loans, taxes & investments for Indian users.",
+    id: "cluster-finance",
+    icon: Wallet, color: "finance",
+    title: "Personal Finance",
+    desc: "EMI, loans, taxes & GST — for every Indian borrower.",
     tools: [
-      "EMI Calculator", "SIP Calculator", "GST Calculator", "Income Tax Calculator",
-      "FD Calculator", "PPF Calculator", "Home Loan Calculator", "Car Loan Calculator",
-      "Lumpsum Calculator", "Compound Interest",
+      ["EMI Calculator", "emi-calculator"],
+      ["Home Loan EMI Calculator", "home-loan-calculator"],
+      ["Personal Loan EMI Calculator", "personal-loan-emi-calculator"],
+      ["Car Loan EMI Calculator", "car-loan-calculator"],
+      ["GST Calculator", "gst-calculator"],
+      ["Income Tax Calculator", "income-tax-calculator"],
+      ["FD Calculator", "fd-calculator"],
+      ["RD Calculator", "rd-calculator"],
+      ["PPF Calculator", "ppf-calculator"],
+      ["SIP Calculator", "sip-calculator"],
     ],
   },
   {
-    icon: HeartPulse,
-    color: "health",
-    title: "Health & Fitness Tools",
-    desc: "Track BMI, calories and daily wellness goals.",
+    id: "cluster-investment",
+    icon: TrendingUp, color: "math",
+    title: "Investment & Savings",
+    desc: "Long-term wealth building — SIP, mutual funds, retirement.",
     tools: [
-      "BMI Calculator", "BMR Calculator", "Calorie Calculator", "Water Intake",
-      "Body Fat Calculator", "Ideal Weight", "Pregnancy Due Date", "Ovulation Calculator",
-      "Heart Rate Zone", "Macro Calculator",
+      ["Lumpsum Calculator", "lumpsum-calculator"],
+      ["Compound Interest Calculator", "compound-interest"],
+      ["Retirement Calculator India", "retirement-calculator-india"],
+      ["Inflation Calculator India", "inflation-calculator-india"],
+      ["Savings Goal Calculator", "savings-goal-calculator"],
+      ["Mutual Fund Return Calculator", "mutual-fund-return-calculator"],
+      ["CAGR Calculator", "cagr-calculator"],
+      ["SWP Calculator", "swp-calculator"],
+      ["NPS Calculator", "nps-calculator"],
+      ["Sukanya Samriddhi Calculator", "sukanya-samriddhi-calculator"],
     ],
   },
   {
-    icon: CalendarDays,
-    color: "daily",
+    id: "cluster-health",
+    icon: HeartPulse, color: "health",
+    title: "Health & Fitness",
+    desc: "Track BMI, calories, water, fitness & wellness goals.",
+    tools: [
+      ["BMI Calculator", "bmi-calculator"],
+      ["BMI Calculator by Age", "bmi-calculator-by-age"],
+      ["BMI Chart Tool", "body-mass-index-chart"],
+      ["Ideal Weight Calculator", "ideal-weight"],
+      ["Calorie Calculator", "calorie-calculator"],
+      ["BMR Calculator", "bmr-calculator"],
+      ["Body Fat Calculator", "body-fat-calculator"],
+      ["Water Intake Calculator", "water-intake"],
+      ["Pregnancy Due Date", "pregnancy-due-date"],
+      ["Ovulation Calculator", "ovulation-calculator"],
+    ],
+  },
+  {
+    id: "cluster-daily",
+    icon: CalendarDays, color: "daily",
     title: "Daily Utility Tools",
-    desc: "Quick everyday calculators that save time.",
+    desc: "Quick everyday calculators that save you minutes daily.",
     tools: [
-      "Age Calculator", "Date Difference", "Working Days", "Countdown Timer",
-      "Stopwatch", "World Clock", "Time Zone Converter", "Birthday Reminder",
-      "Leap Year Check", "Week Number",
+      ["Age Calculator", "age-calculator"],
+      ["Date Difference Calculator", "date-difference"],
+      ["Time Duration Calculator", "time-duration-calculator"],
+      ["Days Between Dates", "days-between-dates"],
+      ["Working Days Calculator", "working-days"],
+      ["Countdown Timer", "countdown-timer"],
+      ["Random Number Generator", "random-number-generator"],
+      ["Number to Words Converter", "number-to-words-converter"],
+      ["Roman Numeral Converter", "roman-numeral-converter"],
+      ["Password Generator", "password-generator"],
     ],
   },
   {
-    icon: Calculator,
-    color: "math",
-    title: "Math & Conversion Tools",
-    desc: "Solve everyday math, ratios and conversions instantly.",
+    id: "cluster-math",
+    icon: Calculator, color: "utility",
+    title: "Math Calculators",
+    desc: "Evergreen math, conversions & school/college essentials.",
     tools: [
-      "Percentage Calculator", "Ratio Calculator", "Average Calculator", "LCM & HCF",
-      "Square Root", "Discount Calculator", "Length Converter", "Weight Converter",
-      "Temperature Converter", "Currency Converter",
+      ["Percentage Calculator", "percentage-calculator"],
+      ["Average Calculator", "average-calculator"],
+      ["Ratio Calculator", "ratio-calculator"],
+      ["Fraction Calculator", "fraction-calculator"],
+      ["Scientific Calculator", "scientific-calculator"],
+      ["Simple Interest Calculator", "simple-interest-calculator"],
+      ["Profit & Loss Calculator", "profit-loss-calculator"],
+      ["Discount Calculator", "discount-calculator"],
+      ["Speed Distance Time", "speed-distance-time-calculator"],
+      ["Area Calculator", "area-calculator"],
     ],
   },
   {
-    icon: Settings2,
-    color: "utility",
-    title: "Text & Web Utilities",
-    desc: "Smart text, password and web tools for productivity.",
+    id: "cluster-utility",
+    icon: Settings2, color: "finance",
+    title: "Utility & Converters",
+    desc: "All-in-one converters and developer/text utilities.",
     tools: [
-      "Password Generator", "QR Code Generator", "Word Counter", "Character Counter",
-      "Case Converter", "Lorem Ipsum", "URL Encoder", "Base64 Encoder",
-      "JSON Formatter", "Color Picker",
+      ["Unit Converter (All-in-One)", "unit-converter-all-in-one"],
+      ["Length Converter", "length-converter"],
+      ["Weight Converter", "weight-converter"],
+      ["Temperature Converter", "temperature-converter"],
+      ["Currency Converter", "currency-converter"],
+      ["Data Storage Converter", "data-storage-converter"],
+      ["Text Case Converter", "case-converter"],
+      ["Remove Duplicate Text", "remove-duplicate-text"],
+      ["Word Counter", "word-counter"],
+      ["JSON Formatter", "json-formatter"],
     ],
   },
 ];
@@ -68,20 +119,21 @@ export const ExploreTools = () => (
           Explore all tools
         </span>
         <h2 className="mt-2 text-3xl md:text-4xl">
-          50+ Free Online Calculators & Tools for India
+          60+ Free Online Calculators & Tools for India
         </h2>
         <p className="mt-2 text-muted-foreground">
-          Browse the complete InstantTool library — finance, health, daily
-          utility, math and text tools — built for Indian users in rupees,
-          lakhs and Indian formats.
+          Six powerful clusters — Personal Finance, Investment, Health, Daily,
+          Math and Utility — built for Indian users in rupees, lakhs and Indian
+          formats.
         </p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {groups.map(({ icon: Icon, color, title, desc, tools }) => (
+        {groups.map(({ id, icon: Icon, color, title, desc, tools }) => (
           <div
             key={title}
-            className="rounded-2xl bg-card border border-border p-6 shadow-card hover:shadow-glow transition-all"
+            id={id}
+            className="rounded-2xl bg-card border border-border p-6 shadow-card hover:shadow-glow transition-all scroll-mt-24"
           >
             <div className="flex items-center gap-3 mb-4">
               <div
@@ -96,28 +148,25 @@ export const ExploreTools = () => (
               </div>
             </div>
 
-            <ul className="grid grid-cols-2 gap-x-3 gap-y-2 text-sm">
-              {tools.map((t) => {
-                const slug = t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-                return (
-                  <li key={t}>
-                    <a
-                      href={`/tool/${slug}`}
-                      title={`Free ${t} online`}
-                      className="text-muted-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
-                    >
-                      {t}
-                    </a>
-                  </li>
-                );
-              })}
+            <ul className="grid grid-cols-1 gap-y-2 text-sm">
+              {tools.map(([label, slug]) => (
+                <li key={slug}>
+                  <a
+                    href={`/tool/${slug}`}
+                    title={`Free ${label} online`}
+                    className="text-muted-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
 
             <a
               href="#categories"
               className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
             >
-              View all {title.split(" ")[0].toLowerCase()} tools <ArrowRight className="h-4 w-4" />
+              View all categories <ArrowRight className="h-4 w-4" />
             </a>
           </div>
         ))}
