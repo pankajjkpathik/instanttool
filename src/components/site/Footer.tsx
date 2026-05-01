@@ -76,7 +76,7 @@ export const Footer = () => (
       </div>
       <div className="mt-12 border-t border-background/10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-background/60">
         <div>© {new Date().getFullYear()} InstantTool.in — All rights reserved.</div>
-        <div>Made with ❤️ in India</div>
+        <div></div>
       </div>
     </div>
   </footer>
