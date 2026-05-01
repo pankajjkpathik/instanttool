@@ -1,11 +1,10 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
-import EmiCalculatorPage from "./pages/tools/EmiCalculatorPage.tsx";
 import DynamicToolPage from "./pages/tools/DynamicToolPage.tsx";
 import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
@@ -36,7 +35,8 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/category/:key" element={<CategoryPage />} />
-          <Route path="/emi-calculator" element={<EmiCalculatorPage />} />
+          {/* Legacy URL — 301 to canonical /tool/emi-calculator */}
+          <Route path="/emi-calculator" element={<Navigate to="/tool/emi-calculator" replace />} />
           <Route path="/tool/:slug" element={<DynamicToolPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
