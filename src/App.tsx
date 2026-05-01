@@ -15,6 +15,7 @@ import Sitemap from "./pages/Sitemap.tsx";
 import Blog from "./pages/Blog.tsx";
 import BlogPost from "./pages/BlogPost.tsx";
 import CategoryPage from "./pages/CategoryPage.tsx";
+import { ScrollToTop } from "./components/site/ScrollToTop.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
