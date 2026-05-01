@@ -52,41 +52,72 @@ export const ToolPageLayout = (props: ToolPageProps) => {
     setMeta("description", description);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
+    setMeta("og:type", "website", "property");
+    setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
 
-    if (canonical) {
-      let link = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
-      if (!link) {
-        link = document.createElement("link");
-        link.rel = "canonical";
-        document.head.appendChild(link);
-      }
-      link.href = `${window.location.origin}${canonical}`;
+    // Canonical URL — always emit (use given path or current pathname)
+    const canonicalPath = canonical || window.location.pathname;
+    let link = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      document.head.appendChild(link);
     }
+    link.href = `${window.location.origin}${canonicalPath}`;
+    setMeta("og:url", link.href, "property");
+
+    // Helper to (re)inject a JSON-LD script with stable id
+    const upsertLd = (id: string, data: unknown) => {
+      document.getElementById(id)?.remove();
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.id = id;
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+    };
 
     // FAQ JSON-LD
-    const ldId = "tool-faq-jsonld";
-    const existing = document.getElementById(ldId);
-    if (existing) existing.remove();
     if (faqs?.length) {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.id = ldId;
-      script.text = JSON.stringify({
+      upsertLd("tool-faq-jsonld", {
         "@context": "https://schema.org",
         "@type": "FAQPage",
+        inLanguage: "en-IN",
         mainEntity: faqs.map((f) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       });
-      document.head.appendChild(script);
+    } else {
+      document.getElementById("tool-faq-jsonld")?.remove();
     }
 
-    return () => { document.getElementById(ldId)?.remove(); };
-  }, [title, description, canonical, faqs]);
+    // BreadcrumbList JSON-LD
+    const crumbs = [
+      { name: "Home", item: `${window.location.origin}/` },
+      ...(breadcrumbCategory
+        ? [{ name: breadcrumbCategory.label, item: `${window.location.origin}${breadcrumbCategory.href}` }]
+        : []),
+      { name: h1, item: link.href },
+    ];
+    upsertLd("tool-breadcrumb-jsonld", {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: crumbs.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.name,
+        item: c.item,
+      })),
+    });
+
+    return () => {
+      document.getElementById("tool-faq-jsonld")?.remove();
+      document.getElementById("tool-breadcrumb-jsonld")?.remove();
+    };
+  }, [title, description, canonical, faqs, breadcrumbCategory, h1]);
 
   return (
     <div className="min-h-screen bg-background">
