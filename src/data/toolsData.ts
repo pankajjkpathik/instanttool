@@ -29,6 +29,25 @@ import { TimeDuration } from "@/components/tools/TimeDuration";
 import { RemoveDuplicates } from "@/components/tools/RemoveDuplicates";
 import { DataStorageConverter } from "@/components/tools/DataStorageConverter";
 import { ScientificCalculator } from "@/components/tools/ScientificCalculator";
+import {
+  IncomeTaxCalculator, FdCalculator, PpfCalculator, LumpsumCalculator,
+  CompoundInterestCalculator, DiscountCalculator, CurrencyConverter,
+} from "@/components/tools/FinanceCalculators";
+import {
+  BmrCalculator, BodyFatCalculator, IdealWeightCalculator, PregnancyDueDate,
+  OvulationCalculator, HeartRateZone, MacroCalculator, BmiByAge, BmiChart,
+} from "@/components/tools/HealthCalculators";
+import {
+  WorkingDays, DaysBetweenDates, CountdownTimer, Stopwatch, WorldClock,
+  TimeZoneConverter, BirthdayReminder, LeapYearCheck, WeekNumber,
+} from "@/components/tools/DailyCalculators";
+import {
+  RatioCalculator, AverageCalculator, LcmHcf, SquareRoot,
+} from "@/components/tools/MathCalculators";
+import {
+  WordCounter, CharacterCounter, CaseConverter, LoremIpsum,
+  UrlEncoder, Base64Encoder, JsonFormatter, ColorPicker,
+} from "@/components/tools/UtilityCalculators";
 
 export type CategoryKey = "finance" | "investment" | "health" | "daily" | "math" | "utility";
 
@@ -1299,6 +1318,55 @@ setCalc("savings-goal-calculator", SipCalculator);
 setCalc("nps-calculator", SipCalculator);
 setCalc("sukanya-samriddhi-calculator", SipCalculator);
 setCalc("rd-calculator", RdCalculator);
+
+// === Finance / Investment ===
+setCalc("income-tax-calculator", IncomeTaxCalculator);
+setCalc("fd-calculator", FdCalculator);
+setCalc("ppf-calculator", PpfCalculator);
+setCalc("home-loan-calculator", EmiCalculator);
+setCalc("car-loan-calculator", EmiCalculator);
+setCalc("lumpsum-calculator", LumpsumCalculator);
+setCalc("compound-interest", CompoundInterestCalculator);
+setCalc("discount-calculator", DiscountCalculator);
+setCalc("currency-converter", CurrencyConverter);
+
+// === Health ===
+setCalc("bmr-calculator", BmrCalculator);
+setCalc("body-fat-calculator", BodyFatCalculator);
+setCalc("ideal-weight", IdealWeightCalculator);
+setCalc("pregnancy-due-date", PregnancyDueDate);
+setCalc("ovulation-calculator", OvulationCalculator);
+setCalc("heart-rate-zone", HeartRateZone);
+setCalc("macro-calculator", MacroCalculator);
+setCalc("bmi-calculator-by-age", BmiByAge);
+setCalc("body-mass-index-chart", BmiChart);
+
+// === Daily ===
+setCalc("working-days", WorkingDays);
+setCalc("days-between-dates", DaysBetweenDates);
+setCalc("countdown-timer", CountdownTimer);
+setCalc("stopwatch", Stopwatch);
+setCalc("world-clock", WorldClock);
+setCalc("time-zone-converter", TimeZoneConverter);
+setCalc("birthday-reminder", BirthdayReminder);
+setCalc("leap-year-check", LeapYearCheck);
+setCalc("week-number", WeekNumber);
+
+// === Math ===
+setCalc("ratio-calculator", RatioCalculator);
+setCalc("average-calculator", AverageCalculator);
+setCalc("lcm-hcf", LcmHcf);
+setCalc("square-root", SquareRoot);
+
+// === Utility ===
+setCalc("word-counter", WordCounter);
+setCalc("character-counter", CharacterCounter);
+setCalc("case-converter", CaseConverter);
+setCalc("lorem-ipsum", LoremIpsum);
+setCalc("url-encoder", UrlEncoder);
+setCalc("base64-encoder", Base64Encoder);
+setCalc("json-formatter", JsonFormatter);
+setCalc("color-picker", ColorPicker);
 
 // Filter out any junk entries (the placeholder we hacked above):
 const cleaned = tools.filter((t) => t && t.slug && t.name);

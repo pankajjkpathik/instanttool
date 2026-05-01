@@ -1,22 +1,37 @@
 import { Link } from "react-router-dom";
 import { StaticPageLayout } from "@/components/site/StaticPageLayout";
+import { blogPosts } from "@/data/blogPosts";
+
+const fmt = (d: string) => new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 
 const Blog = () => (
   <StaticPageLayout
-    title="Blog – InstantTool.in"
-    description="Guides, calculators and explainers from InstantTool.in — coming soon."
+    title="Blog – InstantTool.in | Finance, Tax, Health & Utility Guides"
+    description="In-depth guides on EMI, SIP, tax saving, BMI, calorie deficit, retirement and more — written for Indian readers, with linked calculators."
     canonical="/blog"
     h1="InstantTool Blog"
   >
     <p>
-      We’re working on in-depth guides covering EMI planning, SIP strategies,
-      tax savings, BMI & nutrition, and many more topics tailored for Indian
-      readers. Check back soon!
+      In-depth, India-first guides on personal finance, investing, tax planning,
+      health and everyday utilities — each linked to a free calculator so you
+      can apply the lessons immediately.
     </p>
-    <p>
-      Meanwhile, explore our <Link to="/#explore">60+ free calculators</Link>{" "}
-      or download the <a href="/InstantTool-Personal-Finance-Planner.xlsx">Personal Finance Planner</a>.
-    </p>
+
+    <div className="not-prose mt-6 grid gap-4 sm:grid-cols-2">
+      {blogPosts.map((p) => (
+        <Link
+          key={p.slug}
+          to={`/blog/${p.slug}`}
+          className="group block rounded-xl border border-border bg-card p-5 hover:border-primary hover:shadow-soft transition-all"
+        >
+          <div className="text-xs text-muted-foreground">
+            {p.category} · {fmt(p.date)} · {p.readMin} min read
+          </div>
+          <h3 className="mt-2 text-lg font-bold text-foreground group-hover:text-primary">{p.title}</h3>
+          <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+        </Link>
+      ))}
+    </div>
   </StaticPageLayout>
 );
 
