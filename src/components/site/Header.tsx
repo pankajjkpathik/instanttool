@@ -5,12 +5,12 @@ import logo from "@/assets/logo-instanttool.png";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Finance", href: "/#cluster-finance" },
-  { label: "Investment", href: "/#cluster-investment" },
-  { label: "Health", href: "/#cluster-health" },
-  { label: "Daily", href: "/#cluster-daily" },
-  { label: "Math", href: "/#cluster-math" },
-  { label: "Utility", href: "/#cluster-utility" },
+  { label: "Finance", href: "/category/finance" },
+  { label: "Investment", href: "/category/investment" },
+  { label: "Health", href: "/category/health" },
+  { label: "Daily", href: "/category/daily" },
+  { label: "Math", href: "/category/math" },
+  { label: "Utility", href: "/category/utility" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -46,13 +46,13 @@ export const Header = () => {
 
         <nav className="hidden lg:flex items-center gap-6">
           {navItems.map((n) => (
-            <a
+            <Link
               key={n.label}
-              href={n.href}
+              to={n.href}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               {n.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -78,14 +78,14 @@ export const Header = () => {
         <nav className="lg:hidden border-t border-border bg-card">
           <div className="container-tool flex flex-col py-3">
             {navItems.map((n) => (
-              <a
+              <Link
                 key={n.label}
-                href={n.href}
+                to={n.href}
                 onClick={() => setOpen(false)}
                 className="py-3 text-sm font-medium text-foreground hover:text-primary"
               >
                 {n.label}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
