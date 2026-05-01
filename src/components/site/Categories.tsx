@@ -1,11 +1,12 @@
-import { Wallet, HeartPulse, CalendarDays, Calculator, Settings2 } from "lucide-react";
+import { Wallet, TrendingUp, HeartPulse, CalendarDays, Calculator, Settings2 } from "lucide-react";
 
 const categories = [
-  { icon: Wallet, title: "Finance Tools", desc: "EMI, SIP, GST, Tax & loan calculators", color: "finance" },
-  { icon: HeartPulse, title: "Health Tools", desc: "BMI, BMR, calorie & water trackers", color: "health" },
-  { icon: CalendarDays, title: "Daily Utilities", desc: "Age, date difference & timers", color: "daily" },
-  { icon: Calculator, title: "Math Calculators", desc: "Percentage, ratio & unit converters", color: "math" },
-  { icon: Settings2, title: "Utility Tools", desc: "Text, password & QR code tools", color: "utility" },
+  { icon: Wallet, title: "Personal Finance", desc: "EMI, GST, Tax & loan calculators", color: "finance", anchor: "#cluster-finance" },
+  { icon: TrendingUp, title: "Investment & Savings", desc: "SIP, FD, PPF, NPS, CAGR & more", color: "math", anchor: "#cluster-investment" },
+  { icon: HeartPulse, title: "Health & Fitness", desc: "BMI, BMR, calorie & water trackers", color: "health", anchor: "#cluster-health" },
+  { icon: CalendarDays, title: "Daily Utilities", desc: "Age, date, timer & quick tools", color: "daily", anchor: "#cluster-daily" },
+  { icon: Calculator, title: "Math Calculators", desc: "Percentage, ratio, scientific & more", color: "utility", anchor: "#cluster-math" },
+  { icon: Settings2, title: "Utility & Converters", desc: "Unit, currency, text & web tools", color: "finance", anchor: "#cluster-utility" },
 ];
 
 export const Categories = () => (
@@ -13,13 +14,13 @@ export const Categories = () => (
     <div className="container-tool">
       <div className="mb-10 max-w-2xl">
         <h2 className="text-3xl md:text-4xl">Browse by category</h2>
-        <p className="mt-2 text-muted-foreground">Pick a category to find the perfect tool in seconds.</p>
+        <p className="mt-2 text-muted-foreground">Six powerful clusters covering 60+ free tools for India.</p>
       </div>
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-        {categories.map(({ icon: Icon, title, desc, color }) => (
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {categories.map(({ icon: Icon, title, desc, color, anchor }) => (
           <a
             key={title}
-            href="#popular"
+            href={anchor}
             className="group rounded-2xl bg-card border border-border p-6 shadow-card hover:-translate-y-1 hover:shadow-glow hover:border-primary/40 transition-all"
           >
             <div
