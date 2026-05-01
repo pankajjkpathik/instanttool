@@ -9,14 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node server.js",
-    "serve": "node server.js",
-    "postinstall": "vite build || echo 'skip build'",
     "test": "vitest run",
     "test:watch": "vitest"
-  },
-  "engines": {
-    "node": ">=18.18.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -51,10 +45,8 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
-    "compression": "^1.8.1",
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.6.0",
-    "express": "^5.2.1",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
     "next-themes": "^0.3.0",
@@ -76,8 +68,6 @@
     "@tailwindcss/typography": "^0.5.16",
     "@testing-library/jest-dom": "^6.6.0",
     "@testing-library/react": "^16.0.0",
-    "@types/compression": "^1.8.1",
-    "@types/express": "^5.0.6",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
