@@ -14,12 +14,12 @@ const cols: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Categories",
     links: [
-      { label: "Personal Finance", href: "/#cluster-finance" },
-      { label: "Investment & Savings", href: "/#cluster-investment" },
-      { label: "Health & Fitness", href: "/#cluster-health" },
-      { label: "Daily Utilities", href: "/#cluster-daily" },
-      { label: "Math Calculators", href: "/#cluster-math" },
-      { label: "Utility & Converters", href: "/#cluster-utility" },
+      { label: "Personal Finance", href: "/category/finance" },
+      { label: "Investment & Savings", href: "/category/investment" },
+      { label: "Health & Fitness", href: "/category/health" },
+      { label: "Daily Utilities", href: "/category/daily" },
+      { label: "Math Calculators", href: "/category/math" },
+      { label: "Utility & Converters", href: "/category/utility" },
     ],
   },
   {
