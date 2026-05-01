@@ -9,8 +9,14 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
+    "start": "node server.js",
+    "serve": "node server.js",
+    "postinstall": "vite build || echo 'skip build'",
     "test": "vitest run",
     "test:watch": "vitest"
+  },
+  "engines": {
+    "node": ">=18.18.0"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
