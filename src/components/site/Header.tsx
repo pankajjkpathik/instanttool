@@ -78,14 +78,14 @@ export const Header = () => {
         <nav className="lg:hidden border-t border-border bg-card">
           <div className="container-tool flex flex-col py-3">
             {navItems.map((n) => (
-              <a
+              <Link
                 key={n.label}
-                href={n.href}
+                to={n.href}
                 onClick={() => setOpen(false)}
                 className="py-3 text-sm font-medium text-foreground hover:text-primary"
               >
                 {n.label}
-              </a>
+              </Link>
             ))}
           </div>
         </nav>
